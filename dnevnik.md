@@ -15,3 +15,10 @@ Pocetak | Kraj
 14:15   | 15:15
 ### Kratki opis promjena
 Održano predavanje o projektu
+
+## 11.08.2021.
+Pocetak | Kraj
+------- | ----
+11:50   | 13:00
+### Kratki opis promjena
+Inicijaliziran Front-end i napravljen testni primjer po uzoru sa vježbi.

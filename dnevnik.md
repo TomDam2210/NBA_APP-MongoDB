@@ -23,9 +23,18 @@ Pocetak | Kraj
 ### Kratki opis promjena
 Inicijaliziran Front-end i napravljen testni primjer po uzoru sa vježbi.
 
-## 11.08.2021.
+## 12.08.2021.
 Pocetak | Kraj
 ------- | ----
-09:00   | xx:xx
+09:00   | 10:30
 ### Kratki opis promjena
-Uređivanje stranice, izrada css-a za neke elemente...
+Uređivanje stranice, izrada css-a za elemente poput searchBar-a i botuna za pretraživanje.
+
+## 12.08.2021.
+Pocetak | Kraj
+------- | ----
+11:00   | xx:xx
+### Kratki opis promjena
+Inicijaliziran backend, postavljanje servera...
+
+

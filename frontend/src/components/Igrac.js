@@ -2,7 +2,7 @@ import React from "react"
 
 const Igrac = ({igrac}) => {
     return (
-        <li>{igrac.ime}</li>
+        <li>{igrac.first_name + " " + igrac.last_name} </li>
     )
    }
 

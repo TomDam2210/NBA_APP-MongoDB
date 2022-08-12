@@ -44,3 +44,11 @@ Pocetak | Kraj
 12:30   | xx:xx
 ### Kratki opis promjena
 Početak spajanja backenda i frontenda.
+
+## 12.08.2021.
+Pocetak | Kraj
+------- | ----
+12:30   | 16:00
+### Kratki opis promjena
+Spojen backend i frontend. Umjesto hardkodiranih podataka na serveru, dohvaćeni neki podaci sa online API-ja. 
+Implementirana funkcija za dohvat igrača pomoću axiosa i useEffect hooka.

@@ -1,7 +1,3 @@
-const express = require('express')
-const app = express()
-app.use(express.json())
-
 let igraci = [
     {
         br: 30,
@@ -22,6 +18,13 @@ let igraci = [
         pozicija: 'Center'
     }
 ]
+const express = require('express')
+const cors = require('cors')
+const app = express()
+app.use(cors())
+app.use(express.json())
+
+
 app.get('/', (req, res) =>{
  res.send('<h1>Dobrodošli na NBA stranicu!</h1>')
 })

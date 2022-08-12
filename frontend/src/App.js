@@ -23,7 +23,7 @@ const App = (props) => {
    
 
 return (
-    <div>
+    <div className="nav">
         <h1>NBA APP</h1>
         <ul>
             {igraci.map(i =>
@@ -31,9 +31,18 @@ return (
             )}
         </ul>
         <form onSubmit={pretraziIgraca}>
-            <input value={unos} onChange={promjenaUnosa} />
+            <input className="input" 
+                type="text"
+                value={unos} 
+                onChange={promjenaUnosa}
+            />
             <button type='submit'>Spremi</button>
         </form>
+        <div className="sredina">
+            <div className="sredina-tekst">
+                Pretražite igrače kako bi usporedili prosjeke sezone!
+            </div>
+        </div>
     </div>
 )
 }

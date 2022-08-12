@@ -14,7 +14,7 @@ code {
 
 .input {
   padding: 4px;
-  border-radius: 25px;
+  border-radius: 0.25rem;
   text-align: center;
 }
 
@@ -37,4 +37,13 @@ code {
 
 .sredina-tekst {
   text-align: center;
+}
+
+.botun1 {
+  background-color: darkblue;
+  color: cyan;
+  padding: 8px;
+  min-width: 16px;
+  text-transform: uppercase;
+  border-radius: 0.25rem;
 }

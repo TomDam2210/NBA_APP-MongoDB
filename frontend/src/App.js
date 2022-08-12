@@ -36,7 +36,7 @@ return (
                 value={unos} 
                 onChange={promjenaUnosa}
             />
-            <button type='submit'>Spremi</button>
+            <button className="botun1" type='submit'>Pretraži</button>
         </form>
         <div className="sredina">
             <div className="sredina-tekst">

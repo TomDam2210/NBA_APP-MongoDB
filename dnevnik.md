@@ -33,8 +33,9 @@ Uređivanje stranice, izrada css-a za elemente poput searchBar-a i botuna za pre
 ## 12.08.2021.
 Pocetak | Kraj
 ------- | ----
-11:00   | xx:xx
+11:00   | 12:25
 ### Kratki opis promjena
 Inicijaliziran backend, postavljanje servera...
+Postavljene rute za dohvaćanje svih igrača ili određenog igrača te brisanje.
 
 

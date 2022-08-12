@@ -38,4 +38,9 @@ Pocetak | Kraj
 Inicijaliziran backend, postavljanje servera...
 Postavljene rute za dohvaćanje svih igrača ili određenog igrača te brisanje.
 
-
+## 12.08.2021.
+Pocetak | Kraj
+------- | ----
+12:30   | xx:xx
+### Kratki opis promjena
+Početak spajanja backenda i frontenda.

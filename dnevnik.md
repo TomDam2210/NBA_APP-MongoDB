@@ -52,3 +52,10 @@ Pocetak | Kraj
 ### Kratki opis promjena
 Spojen backend i frontend. Umjesto hardkodiranih podataka na serveru, dohvaćeni neki podaci sa online API-ja. 
 Implementirana funkcija za dohvat igrača pomoću axiosa i useEffect hooka.
+
+## 12.08.2021.
+Pocetak | Kraj
+------- | ----
+13:00   | xx:xx
+### Kratki opis promjena
+Izdvajanje djelova u module. Početak izrade baze...

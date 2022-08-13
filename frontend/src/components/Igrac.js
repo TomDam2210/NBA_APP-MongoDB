@@ -1,8 +1,11 @@
 import React from "react"
 
-const Igrac = ({igrac}) => {
+const Igrac = ({igrac, brisiIgraca}) => {
     return (
-        <li>{igrac.first_name + " " + igrac.last_name} </li>
+        <li>
+        {igrac.ime} 
+        <button onClick={brisiIgraca}>X</button>
+        </li>
     )
    }
 

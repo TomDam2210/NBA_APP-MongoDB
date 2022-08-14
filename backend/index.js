@@ -24,15 +24,18 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 
-
+//Početna stranica
 app.get('/', (req, res) =>{
  res.send('<h1>Dobrodošli na NBA stranicu!</h1>')
 })
 
+//Dohvaćanje svih
 app.get('/api/igraci', (req, res) =>{
  res.json(igraci)
 })
 
+
+//Dohvaćanje jednog igrača
 app.get('/api/igraci/:id', (req, res) =>{
     const id = Number(req.params.id)
     const igrac = igraci.find(p => p.br === id)
@@ -44,14 +47,50 @@ app.get('/api/igraci/:id', (req, res) =>{
     }
 })
 
-
+//Brisanje
 app.delete('/api/igraci/:id', (req, res) => {
     const id = Number(req.params.id)
     igraci = igraci.filter(p => p.br !== id)
     res.status(204).end()
 })
-   
-   
+
+//Dodavanje novog
+app.post('/api/igraci', (req, res) => {
+    const podatak = req.body
+    if (!podatak.ime) {
+        return res.status(400).json({
+            error: 'Nedostaje ime'
+        })
+    }
+    if (!podatak.prezime) {
+        return res.status(400).json({
+            error: 'Nedostaje prezime'
+        })
+    }
+    if (!podatak.pozicija) {
+        return res.status(400).json({
+            error: 'Nedostaje pozicija'
+        })
+    }
+
+    let igrac = {
+        br: generirajId(),
+        ime: podatak.ime,
+        prezime: podatak.prezime,
+        pozicija: podatak.pozicija
+    }
+
+    igrac = igraci.concat(igrac)
+
+    res.json(igrac)
+})
+
+const generirajId = () => {
+    return Math.random().toString();
+}
+
+
+//PORT
 const PORT = 3001
 app.listen(PORT, () => {
  console.log(`Posluzitelj je pokrenut na portu ${PORT}`);

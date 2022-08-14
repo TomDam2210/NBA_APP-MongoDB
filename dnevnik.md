@@ -59,3 +59,10 @@ Pocetak | Kraj
 13:00   | xx:xx
 ### Kratki opis promjena
 Izdvajanje djelova u module. Početak izrade baze...
+
+## 14.08.2021.
+Pocetak | Kraj
+------- | ----
+13:00   | xx:xx
+### Kratki opis promjena
+Uređivanje komponenti. Prikaz podataka u tablici...

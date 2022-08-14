@@ -33,7 +33,7 @@ app.get('/api/igraci', (req, res) =>{
  res.json(igraci)
 })
 
-app.get('/api/poruke/:id', (req, res) =>{
+app.get('/api/igraci/:id', (req, res) =>{
     const id = Number(req.params.id)
     const igrac = igraci.find(p => p.br === id)
    
@@ -45,7 +45,7 @@ app.get('/api/poruke/:id', (req, res) =>{
 })
 
 
-app.delete('/api/poruke/:id', (req, res) => {
+app.delete('/api/igraci/:id', (req, res) => {
     const id = Number(req.params.id)
     igraci = igraci.filter(p => p.br !== id)
     res.status(204).end()

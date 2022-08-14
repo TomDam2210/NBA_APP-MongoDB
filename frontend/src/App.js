@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 import Igrac from "./components/Igrac"
-import axios from 'axios'
+import igraciAkcije from './service/igraci'
 
 const App = (props) => {
     const [igraci, postaviIgraca] = useState([])
@@ -12,13 +12,15 @@ const App = (props) => {
     : igraci.filter(ig => ig.i)
 
     useEffect( () => {
-        axios.get("http://localhost:3001/api/igraci")//.then(res => {console.log(res.data.data)})// https://www.balldontlie.io/api/v1/players
+        //axios.get("http://localhost:3001/api/igraci")//.then(res => {console.log(res.data.data)})// https://www.balldontlie.io/api/v1/players
+        igraciAkcije.dohvatiSve()
         .then(res => {postaviIgraca(res.data)})
     }, [])
     
     const brisiIgraca = (id) => {
-        axios.delete(`http://localhost:3001/api/igraci/${id}`)
-          .then(response => {
+        //axios.delete(`http://localhost:3001/api/igraci/${id}`)
+        igraciAkcije.brisi()  
+        .then(response => {
             console.log(response);
             postaviIgraca(igraci.filter(i => i.id !== id))
           })

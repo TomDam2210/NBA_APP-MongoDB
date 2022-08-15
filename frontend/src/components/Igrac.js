@@ -1,11 +1,22 @@
 import React from "react"
+import './Igrac.css'
 
-const Igrac = ({igrac, brisiIgraca}) => {
+const Igrac = (props) => {
     return (
-        <li>
+        <tr>
+            <td>{props.brojDresa}</td>
+            <td>{props.ime}</td>
+            <td>{props.prezime}</td>
+            <td>{props.pozicija}</td>
+            <td>
+                <button onClick={props.brisi} id="button-brisi">Briši</button>
+            </td>
+
+        </tr>
+        /*<li>
         {igrac.ime} 
         <button onClick={brisiIgraca}>X</button>
-        </li>
+        </li>*/
     )
    }
 

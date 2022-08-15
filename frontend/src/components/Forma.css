@@ -1,0 +1,41 @@
+.okvir {
+    border: 3px solid #002f6d;
+    border-radius: 15px;
+    width: fit-content;
+    height: fit-content;
+    padding: 5px;
+}
+
+.odabir {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 5px;
+}
+
+.unos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tipke {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 10px;
+}
+
+#ok {
+    background-color: green;
+    color: white;
+}
+
+#odustani {
+    background-color: red;
+    color: white;
+}
+
+p {
+    font-weight: bold;
+}

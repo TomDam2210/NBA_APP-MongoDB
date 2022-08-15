@@ -70,6 +70,7 @@ Uređivanje komponenti. Prikaz podataka u tablici...
 ## 15.08.2021.
 Pocetak | Kraj
 ------- | ----
-12:00   | xx:xx
+12:00   | 16:15
 ### Kratki opis promjena
 Uređivanje komponenti. Prikaz podataka u tablici-nastavak. 
+Dodane komponente Forma i Tipka, dovršena tablica.

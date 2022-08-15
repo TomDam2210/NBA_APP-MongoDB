@@ -66,3 +66,10 @@ Pocetak | Kraj
 13:00   | xx:xx
 ### Kratki opis promjena
 Uređivanje komponenti. Prikaz podataka u tablici...
+
+## 15.08.2021.
+Pocetak | Kraj
+------- | ----
+12:00   | xx:xx
+### Kratki opis promjena
+Uređivanje komponenti. Prikaz podataka u tablici-nastavak. 

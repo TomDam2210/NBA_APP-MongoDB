@@ -74,3 +74,10 @@ Pocetak | Kraj
 ### Kratki opis promjena
 Uređivanje komponenti. Prikaz podataka u tablici-nastavak. 
 Dodane komponente Forma i Tipka, dovršena tablica.
+
+## 16.08.2021.
+Pocetak | Kraj
+------- | ----
+13:00   | xx:xx
+### Kratki opis promjena
+Doradivanje baze podataka...

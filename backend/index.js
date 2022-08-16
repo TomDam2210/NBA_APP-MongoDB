@@ -57,6 +57,12 @@ app.delete('/api/igraci/:id', (req, res) => {
 //Dodavanje novog
 app.post('/api/igraci', (req, res) => {
     const podatak = req.body
+    
+    if (!podatak.brojDresa) {
+        return res.status(400).json({
+            error: 'Nedostaje ime'
+        })
+    }
     if (!podatak.ime) {
         return res.status(400).json({
             error: 'Nedostaje ime'
@@ -74,7 +80,7 @@ app.post('/api/igraci', (req, res) => {
     }
 
     let igrac = {
-        br: generirajId(),
+        brojDresa:podatak.brojDresa,
         ime: podatak.ime,
         prezime: podatak.prezime,
         pozicija: podatak.pozicija
@@ -85,9 +91,6 @@ app.post('/api/igraci', (req, res) => {
     res.json(igrac)
 })
 
-const generirajId = () => {
-    return Math.random().toString();
-}
 
 
 //PORT

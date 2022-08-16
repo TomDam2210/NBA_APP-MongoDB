@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import './Forma.css'
 
 const Forma = (props) => {
-    const [brojDresa, setBrojDresa] = useState(0);
+    const [brojDresa, setBrojDresa] = useState();
     const [ime, setIme] = useState('');
     const [prezime, setPrezime] = useState('');
     const [pozicija, setPozicija] = useState('');

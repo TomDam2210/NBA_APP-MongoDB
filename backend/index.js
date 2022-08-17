@@ -33,37 +33,41 @@ app.get('/', (req, res) =>{
 
 //Dohvaćanje svih
 app.get('/api/igraci', (req, res) =>{
+    console.log(req.body)
     Igrac.find({}).then(rezultat => res.json(rezultat))
     
 })
 
 
 //Dohvaćanje jednog igrača
-app.get('/api/igraci/:id', (req, res) =>{
-    const id = Number(req.params.id)
-    const igrac = igraci.find(p => p.br === id)
-   
-    if (igrac){
-    res.json(igrac)
-    } else {
-    res.status(404).end()
-    }
+app.get('/api/igraci/:id', (req, res, next) =>{
+    Igrac.findById(req.params.id)
+    .then(rezultat =>{
+        if(rezultat){
+            res.json(rezultat)
+        } else {
+            res.status(404).end()
+        }
+    })
+    .catch(err => next(err)) 
 })
 
 //Brisanje
 app.delete('/api/igraci/:id', (req, res) => {
-    const id = Number(req.params.id)
-    igraci = igraci.filter(p => p.br !== id)
-    res.status(204).end()
+    Igrac.findByIdAndRemove(req.params.id)
+    .then(rez => 
+        res.status(204).end())
+    .catch(err => next(err))
 })
 
 //Dodavanje novog
 app.post('/api/igraci', (req, res) => {
     const podatak = req.body
+    //console.log(podatak)
     
-    if (!podatak.brojDresa) {
+   if (!podatak.brojDresa) {
         return res.status(400).json({
-            error: 'Nedostaje ime'
+            error: 'Nedostaje brojDresa'
         })
     }
     if (!podatak.ime) {
@@ -81,19 +85,35 @@ app.post('/api/igraci', (req, res) => {
             error: 'Nedostaje pozicija'
         })
     }
-
-    let igrac = {
-        brojDresa:podatak.brojDresa,
+    
+    const noviIgrac = new Igrac({
+        brojDresa: podatak.brojDresa,
         ime: podatak.ime,
         prezime: podatak.prezime,
         pozicija: podatak.pozicija
-    }
+    })
 
-    igrac = igraci.concat(igrac)
-
-    res.json(igrac)
+    //igrac = igraci.concat(igrac)
+    noviIgrac.save().then(rezultat => {res.json(rezultat)}) 
 })
 
+
+const errorHandler = (err, req, res, next ) => {
+    console.log(err.message);
+    if (err.name === 'CastError') {
+    return res.status(400).send({error: 'krivi format ID-a'})
+    }
+    next(err)
+   }
+
+
+function zadnjiErrorHandler (err, req, res, next) {
+    res.status(500)
+    res.send('error', { error: err })
+   }
+   
+app.use(errorHandler)
+app.use(zadnjiErrorHandler)
 
 
 //PORT

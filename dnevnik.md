@@ -78,6 +78,13 @@ Dodane komponente Forma i Tipka, dovršena tablica.
 ## 16.08.2021.
 Pocetak | Kraj
 ------- | ----
-13:00   | xx:xx
+13:00   | 16:00
 ### Kratki opis promjena
 Doradivanje baze podataka...
+
+## 17.08.2021.
+Pocetak | Kraj
+------- | ----
+09:00   | xx:xx
+### Kratki opis promjena
+Završetak baze podataka...

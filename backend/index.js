@@ -24,6 +24,8 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 
+const Igrac = require('./models/Igrac')
+
 //Početna stranica
 app.get('/', (req, res) =>{
  res.send('<h1>Dobrodošli na NBA stranicu!</h1>')
@@ -31,7 +33,8 @@ app.get('/', (req, res) =>{
 
 //Dohvaćanje svih
 app.get('/api/igraci', (req, res) =>{
- res.json(igraci)
+    Igrac.find({}).then(rezultat => res.json(rezultat))
+    
 })
 
 

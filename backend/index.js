@@ -1,5 +1,5 @@
 let igraci = [
-    {
+    /*{
         br: 30,
         ime: 'Stephen',
         prezime: 'Curry',
@@ -16,8 +16,8 @@ let igraci = [
         ime: 'Kevin',
         prezime: 'Durant',
         pozicija: 'Center'
-    }
-]
+    } */
+] 
 const express = require('express')
 const cors = require('cors')
 const app = express()
@@ -61,30 +61,9 @@ app.delete('/api/igraci/:id', (req, res) => {
 })
 
 //Dodavanje novog
-app.post('/api/igraci', (req, res) => {
+app.post('/api/igraci', (req, res, next) => {
     const podatak = req.body
-    //console.log(podatak)
-    
-   if (!podatak.brojDresa) {
-        return res.status(400).json({
-            error: 'Nedostaje brojDresa'
-        })
-    }
-    if (!podatak.ime) {
-        return res.status(400).json({
-            error: 'Nedostaje ime'
-        })
-    }
-    if (!podatak.prezime) {
-        return res.status(400).json({
-            error: 'Nedostaje prezime'
-        })
-    }
-    if (!podatak.pozicija) {
-        return res.status(400).json({
-            error: 'Nedostaje pozicija'
-        })
-    }
+    console.log(podatak)
     
     const noviIgrac = new Igrac({
         brojDresa: podatak.brojDresa,
@@ -94,7 +73,9 @@ app.post('/api/igraci', (req, res) => {
     })
 
     //igrac = igraci.concat(igrac)
-    noviIgrac.save().then(rezultat => {res.json(rezultat)}) 
+    noviIgrac.save()
+    .then(rezultat => {console.log(rezultat) /*res.json(rezultat)*/})
+    .catch(err => next(err)) 
 })
 
 
@@ -102,7 +83,10 @@ const errorHandler = (err, req, res, next ) => {
     console.log(err.message);
     if (err.name === 'CastError') {
     return res.status(400).send({error: 'krivi format ID-a'})
+    } else if (err.name === 'ValidationError'){
+        return res.status(400).send({error: err.message})
     }
+       
     next(err)
    }
 

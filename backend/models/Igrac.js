@@ -5,10 +5,22 @@ const dbname = 'igraci-api'
 const url = `mongodb+srv://tomodam:${password}@cluster0.dkf4b.mongodb.net/${dbname}?retryWrites=true&w=majority`
 
 const igracSchema = new mongoose.Schema({
- brojDresa: String,
- ime: String,
- prezime: String,
- pozicija: String
+ brojDresa: {
+    type: String,
+    required: true
+ },
+ ime: {
+    type: String,
+    required: true
+ },
+ prezime: {
+    type: String,
+    required: true
+ },
+ pozicija: {
+    type: String,
+    required: true
+ }
 })
 
 igracSchema.set('toJSON', {

@@ -85,6 +85,6 @@ Doradivanje baze podataka...
 ## 17.08.2021.
 Pocetak | Kraj
 ------- | ----
-09:00   | xx:xx
+09:00   | 14:00
 ### Kratki opis promjena
 Završetak baze podataka...

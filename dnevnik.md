@@ -88,3 +88,10 @@ Pocetak | Kraj
 09:00   | 14:00
 ### Kratki opis promjena
 Završetak baze podataka...
+
+## 18.08.2021.
+Pocetak | Kraj
+------- | ----
+12:00   | xx:xx
+### Kratki opis promjena
+Pisanje testova za backend- početak...

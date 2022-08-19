@@ -1,5 +1,5 @@
-let igraci = [
-    /*{
+/* let igraci = [
+    {
         br: 30,
         ime: 'Stephen',
         prezime: 'Curry',
@@ -16,8 +16,8 @@ let igraci = [
         ime: 'Kevin',
         prezime: 'Durant',
         pozicija: 'Center'
-    } */
-] 
+    } 
+] */
 const express = require('express')
 const cors = require('cors')
 const app = express()
@@ -74,7 +74,7 @@ app.post('/api/igraci', (req, res, next) => {
 
     //igrac = igraci.concat(igrac)
     noviIgrac.save()
-    .then(rezultat => {console.log(rezultat) /*res.json(rezultat)*/})
+    .then(rezultat => {res.json(rezultat)})
     .catch(err => next(err)) 
 })
 
@@ -105,3 +105,5 @@ const PORT = 3001
 app.listen(PORT, () => {
  console.log(`Posluzitelj je pokrenut na portu ${PORT}`);
 })
+
+

@@ -95,3 +95,10 @@ Pocetak | Kraj
 12:00   | xx:xx
 ### Kratki opis promjena
 Pisanje testova za backend- početak...
+
+## 19.08.2021.
+Pocetak | Kraj
+------- | ----
+12:00   | 15:00
+### Kratki opis promjena
+Razdvajanje koda u module...

@@ -102,3 +102,10 @@ Pocetak | Kraj
 12:00   | 15:00
 ### Kratki opis promjena
 Razdvajanje koda u module...
+
+## 20.08.2021.
+Pocetak | Kraj
+------- | ----
+12:00   | 15:00
+### Kratki opis promjena
+Nastavak implementacije testova za backend...

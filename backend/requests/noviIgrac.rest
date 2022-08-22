@@ -1,0 +1,9 @@
+POST http://localhost:3001/api/igraci
+content-type: application/json
+
+{
+    "brojDresa": "7",
+    "ime":"Kevin",
+    "prezime":"Durant",
+    "pozicija":"Center"
+}

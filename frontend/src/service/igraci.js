@@ -2,16 +2,29 @@ import axios from "axios";
 
 const osnovniUrl = "http://localhost:3001/api/igraci"
 
+let token = null
+const postaviToken = (noviToken) => {
+    token = `bearer ${noviToken}`
+}
+
 const dohvatiSve = () => {
     return axios.get(osnovniUrl);
 }
 
-const stvori = noviObjekt => {
-    return axios.post(osnovniUrl, noviObjekt)
+const stvori = async(noviObjekt) => {
+    const config = {
+        headers: {Authorization: token}
+    }
+    const odgovor = await axios.post(osnovniUrl,noviObjekt,config)
+    return odgovor
 }
 
-const brisi = id => {
-    return axios.delete(`${osnovniUrl}/${id}`)
+const brisi = async(id) => {
+    const config = {
+        headers: {Authorization: token}
+    }
+    const odgovor = await axios.delete(`${osnovniUrl}/${id}`,config)
+    return odgovor
 }
 
-export default {dohvatiSve, stvori, brisi}
+export default {dohvatiSve, stvori, brisi, postaviToken}

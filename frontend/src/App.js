@@ -4,10 +4,12 @@ import './App.css'
 //Import komponenti
 import Igrac from "./components/Igrac"
 import Forma from './components/Forma'
+import LoginForma from "./components/LoginForma"
 import Tipka from './components/Tipka'
 
 //Import servisa
 import igraciAkcije from './service/igraci'
+import prijavaAkcije from './service/login'
 
 const App = () => {
     //Prikaz forme
@@ -16,7 +18,32 @@ const App = () => {
         setPrikazForme(!prikazForme);
     }
 
+    const [username, setUsername] = useState('')
+    const [pass, setPass] = useState('')
+    const [korisnik, setKorisnik] = useState(null);
+
     const [igraci, postaviIgraca] = useState([])
+
+    const userLogin = async (e) => {
+        e.preventDefault()
+        try{
+            const korisnik = await prijavaAkcije.prijava({
+                username, pass
+            })
+            setKorisnik(korisnik);
+            igraciAkcije.postaviToken(korisnik.token);
+            window.localStorage.setItem(
+                'prijavljenKorisnik',
+                JSON.stringify(korisnik)
+            );
+
+            setUsername('');
+            setPass('');
+        } catch (exception) {
+            alert('Neispravni podaci')
+        }
+    
+    }
     /*const [unos, postaviUnos] = useState("Pretraži igrača...")
     const [ispisIme, postaviIspis] = useState("")
     
@@ -31,6 +58,16 @@ const App = () => {
         igraciAkcije.dohvatiSve()
         .then(res => {postaviIgraca(res.data)})
     }, [])
+
+    useEffect(() => {
+        const logiraniKorisnikJSON = window.localStorage.getItem(
+            'prijavljeniKorisnik'
+          );
+        if (logiraniKorisnikJSON) {
+            const korisnik = JSON.parse(logiraniKorisnikJSON);
+            setKorisnik(korisnik);
+            igraciAkcije.postaviToken(korisnik.token);
+      }}, []);
     
     //Brisanje jednog igraca
     const brisiIgraca = (id) => {
@@ -50,14 +87,29 @@ const App = () => {
     } */
 
     //Dodavanje novog igraca
-    const submit = (objekt) => {
-        igraciAkcije.stvori(objekt)
+    const noviIgrac = (noviObjekt) => {
+        igraciAkcije.stvori(noviObjekt)
         .then(res => {
-            postaviIgraca(igraci.concat(res.data))
-        })
+            postaviIgraca(igraci.concat(res.data));
+        });
 
-        setPrikazFormeHandler();
+        
 
+    };
+
+    const loginForma = () => {
+        return (
+            
+              <LoginForma
+              username={username}
+              pass={pass}
+              promjenaImena={({ target }) => setUsername(target.value)}
+              promjenaLozinke={({ target }) => setPass(target.value)}
+              userLogin={userLogin}
+            />
+            
+      )
+           
     }
 
     /*const promjenaUnosa = (e) => {
@@ -68,8 +120,16 @@ const App = () => {
 
 return (
     <div>
+        {korisnik === null ? 
+             loginForma()
+        :
+        <div>
+            <p>Prijavljeni ste kao: {korisnik.ime}</p>
+            {Forma()}
+        </div>
+        }
         <Tipka naslov="Novi igrač" klik={setPrikazFormeHandler}/>
-        {prikazForme ? <Forma odustani={setPrikazFormeHandler} submit={submit} /> : null}
+        {prikazForme ? <Forma odustani={setPrikazFormeHandler} submit={noviIgrac} /> : null}
         <table>
             <thead>
                 <tr>

@@ -1,6 +1,16 @@
 const igraciRouter = require('express').Router()
 const Igrac = require('../models/igrac')
 const Korisnik = require('../models/korisnik')
+const jwt = require('jsonwebtoken')
+
+const dohvatiToken = (req) => {
+    const auth = req.get('Authorization')
+    if (auth && auth.toLowerCase().startsWith("bearer")){
+        return auth.substring(7)
+    }
+    
+    return null
+}
 
 //Dohvaćanje svih
 igraciRouter.get('/', async (req, res) => {
@@ -34,14 +44,22 @@ igraciRouter.delete('/:id', (req, res) => {
 //Dodavanje novog
 igraciRouter.post('/', async (req, res, next) => {
     const podatak = req.body
-    const korisnik = await Korisnik.findById(req.body.korisnikId)
+    const token = dohvatiToken(req)
+
+    const dekToken = jwt.verify(token, process.env.SECRET)
+    if (!token || !dekToken.id){
+        return res.status(401).json({error: "Neispravni token"})
+    }
+
+    const korisnik = await Korisnik.findById(dekToken.id)
     
     
     const igrac = new Igrac({
         brojDresa: podatak.brojDresa,
         ime: podatak.ime,
         prezime: podatak.prezime,
-        pozicija: podatak.pozicija
+        pozicija: podatak.pozicija,
+        korisnik: korisnik._id
     })
 
     

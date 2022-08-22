@@ -15,14 +15,25 @@ const Forma = (props) => {
     const onFormaSubmit = (e) => {
         e.preventDeafault();
 
-        const noviObjekt = {
+        props.spremiIgraca({
+            brojDresa: brojDresa,
+            ime: ime,
+            prezime: prezime,
+            pozicija: pozicija
+        })
+
+        setBrojDresa('')
+        setIme('')
+        setPrezime('')
+        setPozicija('')
+        /*const noviObjekt = {
             brojDresa:brojDresa,
             ime:ime,
             prezime:prezime,
             pozicija:pozicija
         }
 
-        props.submit(noviObjekt);
+        props.submit(noviObjekt); */
     }
 
 
@@ -33,7 +44,7 @@ const Forma = (props) => {
                 <div className='unos'>
                     <div className='odabir'>
                         <label for="br_dresa">Broj dresa:</label>
-                        <input id="br_dresa" type="text" value={brojDresa} onChange={onBrojDresaChange}></input>
+                        <input id="br_dresa" value={brojDresa} onChange={onBrojDresaChange}></input>
                     </div>
                     <div className='odabir'>
                         <label for="ime">Ime:</label>

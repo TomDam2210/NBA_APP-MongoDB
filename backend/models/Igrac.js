@@ -16,6 +16,10 @@ const igracSchema = new mongoose.Schema({
  pozicija: {
     type: String,
     required: true
+ },
+ korisnik: {
+   type: mongoose.Schema.Types.ObjectId,
+   ref: "Korisnik"
  }
 })
 

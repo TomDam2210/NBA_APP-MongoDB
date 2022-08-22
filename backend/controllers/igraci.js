@@ -1,13 +1,13 @@
 const igraciRouter = require('express').Router()
 const Igrac = require('../models/igrac')
+const Korisnik = require('../models/korisnik')
 
 //Dohvaćanje svih
-igraciRouter.get('/', (req, res) =>{
-    Igrac.find({}).then(rezultat => {
-        res.json(rezultat)
+igraciRouter.get('/', async (req, res) => {
+    const igraci = await Igrac.find({})
+    .populate('korisnik', {username: 1, ime: 1})
+    res.json(igraci)
     })
-    
-})
 
 //Dohvaćanje jednog igrača
 igraciRouter.get('/:id', (req, res, next) =>{
@@ -34,6 +34,7 @@ igraciRouter.delete('/:id', (req, res) => {
 //Dodavanje novog
 igraciRouter.post('/', async (req, res, next) => {
     const podatak = req.body
+    const korisnik = await Korisnik.findById(req.body.korisnikId)
     //console.log(podatak)
     
     const igrac = new Igrac({
@@ -45,6 +46,9 @@ igraciRouter.post('/', async (req, res, next) => {
 
     
     const noviIgrac = await igrac.save()
+    korisnik.igraci = korisnik.igraci.concat(noviIgrac._id)
+    await korisnik.save()
+    
     res.json(noviIgrac)
     
 

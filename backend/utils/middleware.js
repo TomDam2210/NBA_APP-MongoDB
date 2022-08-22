@@ -13,7 +13,8 @@ const nepoznataRuta = (req, res) => {
 }
 
 const errorHandler = (err, req, res, next ) => {
-    console.log(err.message);
+    logger.greska(err.message);
+    
     if (err.name === 'CastError') {
         return res.status(400).send({error: 'krivi format ID-a'})
     } else if (err.name === 'ValidationError'){

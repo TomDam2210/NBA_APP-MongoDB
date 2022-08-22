@@ -35,7 +35,7 @@ igraciRouter.delete('/:id', (req, res) => {
 igraciRouter.post('/', async (req, res, next) => {
     const podatak = req.body
     const korisnik = await Korisnik.findById(req.body.korisnikId)
-    //console.log(podatak)
+    
     
     const igrac = new Igrac({
         brojDresa: podatak.brojDresa,

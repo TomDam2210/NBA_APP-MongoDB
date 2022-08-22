@@ -109,3 +109,18 @@ Pocetak | Kraj
 12:00   | 15:00
 ### Kratki opis promjena
 Nastavak implementacije testova za backend...
+
+## 21.08.2021.
+Pocetak | Kraj
+------- | ----
+12:00   | 13:00
+### Kratki opis promjena
+Završetak implementacije testova za backend. (Zaboravljen commit)
+
+## 22.08.2021.
+Pocetak | Kraj
+------- | ----
+11:30   | xx:xx
+### Kratki opis promjena
+Implementacija autorizacije...
+

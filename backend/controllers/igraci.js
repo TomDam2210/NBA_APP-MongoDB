@@ -32,7 +32,7 @@ igraciRouter.delete('/:id', (req, res) => {
 })
 
 //Dodavanje novog
-igraciRouter.post('/', (req, res, next) => {
+igraciRouter.post('/', async (req, res, next) => {
     const podatak = req.body
     //console.log(podatak)
     
@@ -43,10 +43,15 @@ igraciRouter.post('/', (req, res, next) => {
         pozicija: podatak.pozicija
     })
 
+    
+    const noviIgrac = await igrac.save()
+    res.json(noviIgrac)
+    
 
-    igrac.save()
+
+    /*igrac.save()
     .then(rezultat => {res.json(rezultat)})
-    .catch(err => next(err)) 
+    .catch(err => next(err)) */
 })
 
 module.exports = igraciRouter

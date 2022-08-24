@@ -11,7 +11,7 @@ import Tipka from './components/Tipka'
 import igraciAkcije from './service/igraci'
 import prijavaAkcije from './service/login'
 
-const App = () => {
+const App = (props) => {
     //Prikaz forme
     const [prikazForme, setPrikazForme] = useState(true);
     const setPrikazFormeHandler = () => {
@@ -20,7 +20,7 @@ const App = () => {
 
     const [username, setUsername] = useState('')
     const [pass, setPass] = useState('')
-    const [korisnik, setKorisnik] = useState(null);
+    const [korisnik, setKorisnik] = useState(null)
 
     const [igraci, postaviIgraca] = useState([])
 
@@ -30,15 +30,15 @@ const App = () => {
             const korisnik = await prijavaAkcije.prijava({
                 username, pass
             })
-            setKorisnik(korisnik);
+            setKorisnik(korisnik)
             igraciAkcije.postaviToken(korisnik.token);
             window.localStorage.setItem(
                 'prijavljenKorisnik',
                 JSON.stringify(korisnik)
             );
 
-            setUsername('');
-            setPass('');
+            setUsername('')
+            setPass('')
         } catch (exception) {
             alert('Neispravni podaci')
         }
@@ -59,15 +59,14 @@ const App = () => {
         .then(res => {postaviIgraca(res.data)})
     }, [])
 
-    useEffect(() => {
-        const logiraniKorisnikJSON = window.localStorage.getItem(
-            'prijavljeniKorisnik'
-          );
+    useEffect( () => {
+        const logiraniKorisnikJSON = window.localStorage.getItem('prijavljenKorisnik')
         if (logiraniKorisnikJSON) {
-            const korisnik = JSON.parse(logiraniKorisnikJSON);
-            setKorisnik(korisnik);
-            igraciAkcije.postaviToken(korisnik.token);
-      }}, []);
+            const korisnik = JSON.parse(logiraniKorisnikJSON)
+            setKorisnik(korisnik)
+            igraciAkcije.postaviToken(korisnik.token)
+        }
+    }, [])
     
     //Brisanje jednog igraca
     const brisiIgraca = (id) => {
@@ -89,7 +88,7 @@ const App = () => {
     //Dodavanje novog igraca
     const noviIgrac = (noviObjekt) => {
         igraciAkcije.stvori(noviObjekt)
-        .then(res => {
+        .then((res) => {
             postaviIgraca(igraci.concat(res.data));
         });
 
@@ -99,15 +98,13 @@ const App = () => {
 
     const loginForma = () => {
         return (
-            
               <LoginForma
-              username={username}
-              pass={pass}
-              promjenaImena={({ target }) => setUsername(target.value)}
-              promjenaLozinke={({ target }) => setPass(target.value)}
-              userLogin={userLogin}
+                username={username}
+                pass={pass}
+                promjenaImena={({ target }) => setUsername(target.value)}
+                promjenaLozinke={({ target }) => setPass(target.value)}
+                userLogin={userLogin}
             />
-            
       )
            
     }
@@ -120,16 +117,25 @@ const App = () => {
 
 return (
     <div>
-        {korisnik === null ? 
-             loginForma()
-        :
-        <div>
+        {korisnik === null
+        ? <div>
+            <Tipka naslov="PRIJAVA" klik={setPrikazFormeHandler} />
+            {prikazForme
+            ? loginForma ()
+            : null
+            }
+          </div>
+
+        : <div>
             <p>Prijavljeni ste kao: {korisnik.ime}</p>
-            {Forma()}
-        </div>
+            <Tipka naslov="Novi igrač" klik={setPrikazFormeHandler}/>
+            {prikazForme 
+            ? <Forma odustani={setPrikazFormeHandler} spremiIgraca={noviIgrac} /> 
+            : null}
+
+          </div>
         }
-        <Tipka naslov="Novi igrač" klik={setPrikazFormeHandler}/>
-        {prikazForme ? <Forma odustani={setPrikazFormeHandler} submit={noviIgrac} /> : null}
+
         <table>
             <thead>
                 <tr>

@@ -2,26 +2,26 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './App'
 
-/*const igraci = [
+const igraci = [
   {
-    br: 30,
+    brojDresa: "30",
     ime: 'Stephen',
     prezime: 'Curry',
     pozicija: 'PointGuard'
   },
   {
-    br: 11,
+    brojDresa: "11",
     ime: 'Kyrie',
     prezime: 'Irving',
     pozicija: 'Shooter'
   },
   {
-    br: 3,
+    brojDresa: "3",
     ime: 'Kevin',
     prezime: 'Durant',
     pozicija: 'Center'
   }
- ]*/
+ ]
  
 
-ReactDOM.render(<App />, document.getElementById('root'))
+ReactDOM.render(<App igraci={igraci}/>, document.getElementById('root'))

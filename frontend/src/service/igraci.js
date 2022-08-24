@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from "axios"
 
 const osnovniUrl = "http://localhost:3001/api/igraci"
 
@@ -11,7 +11,7 @@ const dohvatiSve = () => {
     return axios.get(osnovniUrl);
 }
 
-const stvori = async(noviObjekt) => {
+const stvori = async (noviObjekt) => {
     const config = {
         headers: {Authorization: token}
     }

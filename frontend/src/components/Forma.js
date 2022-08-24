@@ -2,24 +2,36 @@ import React, {useState} from 'react'
 import './Forma.css'
 
 const Forma = (props) => {
-    const [brojDresa, setBrojDresa] = useState('');
-    const [ime, setIme] = useState('');
-    const [prezime, setPrezime] = useState('');
-    const [pozicija, setPozicija] = useState('');
+    const [unosDresa, setBrojDresa] = useState('');
+    const [unosIme, setIme] = useState('');
+    const [unosPrezime, setPrezime] = useState('');
+    const [unosPozicija, setPozicija] = useState('');
 
-    const onBrojDresaChange = (e) => {setBrojDresa((e.target.value).toString())}
-    const onImeChange = (e) => {setIme((e.target.value).toString())}
-    const onPrezimeChange = (e) => {setPrezime((e.target.value).toString())}
-    const onPozicijaChange = (e) => {setPozicija((e.target.value).toString())}
+    const onBrojDresaChange = (e) => {
+        setBrojDresa((e.target.value).toString())
+        console.log(unosDresa)
+    }
+    const onImeChange = (e) => {
+        setIme((e.target.value).toString())
+        console.log(unosIme)
+    }
+    const onPrezimeChange = (e) => {
+        setPrezime((e.target.value).toString())
+        console.log(unosPrezime)
+    }
+    const onPozicijaChange = (e) => {
+        setPozicija((e.target.value).toString())
+        console.log(unosPozicija)
+    }
 
-    const onFormaSubmit = (e) => {
-        e.preventDeafault();
+    const noviIgrac = (e) => {
+        e.preventDefault();
 
         props.spremiIgraca({
-            brojDresa: brojDresa,
-            ime: ime,
-            prezime: prezime,
-            pozicija: pozicija
+            brojDresa: unosDresa,
+            ime: unosIme,
+            prezime: unosPrezime,
+            pozicija: unosPozicija
         })
 
         setBrojDresa('')
@@ -39,24 +51,24 @@ const Forma = (props) => {
 
     return (
         <div className='okvir'>
-            <form onSubmit={onFormaSubmit}>
+            <form onSubmit={noviIgrac}>
                 <p>Igrač</p>
                 <div className='unos'>
                     <div className='odabir'>
                         <label for="br_dresa">Broj dresa:</label>
-                        <input id="br_dresa" value={brojDresa} onChange={onBrojDresaChange}></input>
+                        <input id="br_dresa" value={unosDresa} onChange={onBrojDresaChange}></input>
                     </div>
                     <div className='odabir'>
                         <label for="ime">Ime:</label>
-                        <input id="ime" type="text" value={ime} onChange={onImeChange}></input>
+                        <input id="ime" type="text" value={unosIme} onChange={onImeChange}></input>
                     </div>
                     <div className='odabir'>
                         <label for="prezime">Prezime:</label>
-                        <input id="prezime" type="text" value={prezime} onChange={onPrezimeChange}></input>
+                        <input id="prezime" type="text" value={unosPrezime} onChange={onPrezimeChange}></input>
                     </div>
                     <div className='odabir'>
                         <label for="pozicija">Pozicija:</label>
-                        <input id="pozicija" type="text" value={pozicija} onChange={onPozicijaChange}></input>
+                        <input id="pozicija" type="text" value={unosPozicija} onChange={onPozicijaChange}></input>
                     </div>
                 </div>
                 <div className="tipke">

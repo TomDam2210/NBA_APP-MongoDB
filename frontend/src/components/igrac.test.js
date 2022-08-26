@@ -10,7 +10,7 @@ test('renderira sadrzaj', () => {
         prezime: 'Curry',
         pozicija: 'Guard'
     }
-    //const testHandler = jest.fn()
+    
     
     const komponenta = render(
         <Igrac igrac={igrac} />

@@ -2,11 +2,7 @@
 - [x] - Opis projekta
 - [x] - Početna struktura aplikacije
 - [x] - Prototip
-<<<<<<< HEAD
 - [x] - Konzultacije
-=======
-- [x] - Konzultacije
->>>>>>> 92430e54bde81da839c11ce9483cf44f60ad060e
 - [ ] - Finalna verzija
 - [ ] - Obrana projekta
 

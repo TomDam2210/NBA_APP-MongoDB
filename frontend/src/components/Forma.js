@@ -5,7 +5,7 @@ const Forma = (props) => {
     const [unosDresa, setBrojDresa] = useState('');
     const [unosIme, setIme] = useState('');
     const [unosPrezime, setPrezime] = useState('');
-    const [unosPozicija, setPozicija] = useState('');
+    const [unosPozicija, setPozicija] = useState('Center');
 
     const onBrojDresaChange = (e) => {
         setBrojDresa((e.target.value).toString())
@@ -37,7 +37,7 @@ const Forma = (props) => {
         setBrojDresa('')
         setIme('')
         setPrezime('')
-        setPozicija('')
+        setPozicija('Center')
         /*const noviObjekt = {
             brojDresa:brojDresa,
             ime:ime,
@@ -68,7 +68,13 @@ const Forma = (props) => {
                     </div>
                     <div className='odabir'>
                         <label for="pozicija">Pozicija:</label>
-                        <input id="pozicija" type="text" value={unosPozicija} onChange={onPozicijaChange}></input>
+                        <select id="pozicija" value={unosPozicija} onChange={onPozicijaChange}>
+                            <option>Center</option>
+                            <option>Power forward</option>
+                            <option>Small forward</option>
+                            <option>Point guard</option>
+                            <option>Shooting guard</option>
+                        </select>
                     </div>
                 </div>
                 <div className="tipke">

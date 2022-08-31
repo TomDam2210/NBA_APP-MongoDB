@@ -2,7 +2,7 @@
 - [x] - Opis projekta
 - [x] - Početna struktura aplikacije
 - [x] - Prototip
-- [ ] - Konzultacije
+- [x] - Konzultacije
 - [ ] - Finalna verzija
 - [ ] - Obrana projekta
 

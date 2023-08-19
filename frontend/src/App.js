@@ -11,6 +11,7 @@ import Tipka from './components/Tipka'
 import igraciAkcije from './service/igraci'
 import prijavaAkcije from './service/login'
 
+
 const App = (props) => {
     //Prikaz forme
     const [prikazForme, setPrikazForme] = useState(true);
@@ -23,6 +24,7 @@ const App = (props) => {
     const [korisnik, setKorisnik] = useState(null)
 
     const [igraci, postaviIgraca] = useState([])
+
 
     const userLogin = async (e) => {
         e.preventDefault()
@@ -58,6 +60,8 @@ const App = (props) => {
         igraciAkcije.dohvatiSve()
         .then(res => {postaviIgraca(res.data)})
     }, [])
+
+    
 
     useEffect( () => {
         const logiraniKorisnikJSON = window.localStorage.getItem('prijavljenKorisnik')
@@ -135,7 +139,6 @@ return (
 
           </div>
         }
-
         <table>
             <thead>
                 <tr>

@@ -5,10 +5,10 @@ import Igrac from './Igrac'
 
 test('renderira sadrzaj', () => {
     const igrac = {
-        brojDresa: '30',
-        ime: 'Stephen',
-        prezime: 'Curry',
-        pozicija: 'Guard'
+        brojDresa: "30",
+        ime: "Stephen",
+        prezime: "Curry",
+        pozicija: "Guard"
     }
     
     

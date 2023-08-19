@@ -32,6 +32,7 @@ igraciRouter.get('/:id', (req, res, next) =>{
     .catch(err => next(err)) 
 })
 
+
 //Brisanje
 igraciRouter.delete('/:id', (req, res) => {
     Igrac.findByIdAndRemove(req.params.id)

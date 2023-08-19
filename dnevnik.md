@@ -120,7 +120,21 @@ Završetak implementacije testova za backend. (Zaboravljen commit)
 ## 22.08.2021.
 Pocetak | Kraj
 ------- | ----
-11:30   | xx:xx
+11:30   | 15:00
 ### Kratki opis promjena
 Implementacija autorizacije...
+
+## 22.08.2021.
+Pocetak | Kraj
+------- | ----
+12:00   | 16:00
+### Kratki opis promjena
+Implementacija frontend testova...
+
+## 22.08.2021.
+Pocetak | Kraj
+------- | ----
+12:00   | 16:15
+### Kratki opis promjena
+Kraj
 
